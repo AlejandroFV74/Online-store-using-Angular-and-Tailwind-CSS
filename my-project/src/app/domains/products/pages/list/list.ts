@@ -2,10 +2,11 @@ import { Component, signal } from '@angular/core';
 import { ProductComponent } from '../../components/product/product';
 import { CommonModule } from '@angular/common';
 import { Product } from '../../../shared/models/product';
+import { Header } from '../../../shared/components/header/header';
 
 @Component({
   selector: 'app-list',
-  imports: [CommonModule, ProductComponent],
+  imports: [CommonModule, ProductComponent, Header],
   templateUrl: './list.html',
   styleUrl: './list.css',
 })
@@ -29,7 +30,22 @@ export class List {
         price: 15.99,
         description: 'Description for Product 2',
         imageUrl: 'https://picsum.photos/340/340?r=45'
+      },
+      {
+        id: Date.now(),
+        name: 'Product 3',
+        price: 15.99,
+        description: 'Description for Product 3',
+        imageUrl: 'https://picsum.photos/340/340?r=5'
+      },
+      {
+        id: Date.now(),
+        name: 'Product 4',
+        price: 15.99,
+        description: 'Description for Product 4',
+        imageUrl: 'https://picsum.photos/340/340?r=6'
       }
+      
     ];
     this.products.set(initProducts);
   } 
