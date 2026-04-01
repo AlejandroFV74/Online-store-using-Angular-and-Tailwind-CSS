@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Product } from '../../../shared/models/product';
 
 @Component({
   selector: 'app-product',
@@ -7,16 +8,14 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   templateUrl: './product.html',
   styleUrl: './product.css',
 })
-export class Product {
-  @Input({required: true}) title: string = '';
-  @Input({required: true}) price: number = 0;
-  @Input({required: true}) img: string = '';
+export class ProductComponent {
+  @Input({required: true}) product!: Product;
 
   @Output() addToCart = new EventEmitter();
   
   addToCartHandler() {
     console.log('mensaje desde el componente product (hijo)');
-    this.addToCart.emit('este es un mensaje desde el componente ' + this.title);
+    this.addToCart.emit('este es un mensaje desde el componente ' + this.product.name);
   }
 
 }
