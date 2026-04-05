@@ -1,45 +1,25 @@
 <nav>
-  <div
-    class="w-full flex flex-wrap items-center justify-between mx-auto py-4"
-  >
+  <div class="w-full flex flex-wrap items-center justify-between mx-auto py-4">
     <div class="flex items-center space-x-8">
-      <a href="https://flowbite.com/" class="flex items-center ">
-        <img
-          src="https://flowbite.com/docs/images/logo.svg"
-          class="h-6 mr-3"
-          alt="Flowbite Logo"
-        />
-        <span class="self-center text-xl font-semibold whitespace-nowrap"
-          >Flowbite</span
-        >
+      <a href="https://www.google.com/" class="flex items-center">
+        <img src="https://media.istockphoto.com/id/1303676225/vector/outlined-simple-and-adorable-white-maltese-dog-front-head-illustration.webp?s=1024x1024&w=is&k=20&c=_fkfApZxMzsvXm7NqzdPCGQ-ZnJQ63iGg2ku-R0RGqk=" class="h-6 mr-3" alt="Cookie Logo" />
+        <span class="self-center text-xl font-semibold whitespace-nowrap">Cookie's World</span>
       </a>
       <ul class="flex space-x-6">
         <li>
-          <a
-            href="#"
-            class="block underline hover:underline"
-            aria-current="page"
-            >Home</a
-          >
+          <a href="#" class="block underline hover:underline" aria-current="page">Home</a>
         </li>
         <li>
-          <a
-            href="#"
-            class="block hover:underline"
-            >About</a
-          >
+          <a href="#" class="block hover:underline">About</a>
         </li>
         <li>
-          <a
-            href="#"
-            class="block hover:underline"
-            >Services</a
-          >
+          <a href="#" class="block hover:underline">Services</a>
         </li>
       </ul>
     </div>
     <div class="flex items-center">
-      <button class="px-4" (click)="toogleSideMenu()">
+      <button class="p-2 border rounded relative" (click)="toogleSideMenu()">
+        <div class="absolute -top-2 -left-2 rounded h-5 w-5 bg-black text-white text-xs">{{cart.length}}</div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -74,12 +54,14 @@
         stroke="currentColor"
         class="w-6 h-6"
       >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M6 18L18 6M6 6l12 12"
-        />
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
       </svg>
     </button>
+  </div>
+  <div>
+    @for (products of cart; track $index) {
+      <p>{{ products.name }}</p>
+      <p>{{ products.price }}</p>
+    }
   </div>
 </div>
