@@ -16,4 +16,12 @@ export class Header {
     this.hideSideMenu.update(prevState => !prevState);
   }
 
+  getTotalPrice() {
+    return this.cart.reduce((total, product) => total + product.price, 0);
+  }
+
+  removeFromCart(productID: number) {
+    this.cart = this.cart.filter(p => p.id !== productID);
+  }
+
 }

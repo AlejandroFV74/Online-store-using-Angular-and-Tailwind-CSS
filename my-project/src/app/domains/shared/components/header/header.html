@@ -2,7 +2,11 @@
   <div class="w-full flex flex-wrap items-center justify-between mx-auto py-4">
     <div class="flex items-center space-x-8">
       <a href="https://www.google.com/" class="flex items-center">
-        <img src="https://media.istockphoto.com/id/1303676225/vector/outlined-simple-and-adorable-white-maltese-dog-front-head-illustration.webp?s=1024x1024&w=is&k=20&c=_fkfApZxMzsvXm7NqzdPCGQ-ZnJQ63iGg2ku-R0RGqk=" class="h-6 mr-3" alt="Cookie Logo" />
+        <img
+          src="https://media.istockphoto.com/id/1303676225/vector/outlined-simple-and-adorable-white-maltese-dog-front-head-illustration.webp?s=1024x1024&w=is&k=20&c=_fkfApZxMzsvXm7NqzdPCGQ-ZnJQ63iGg2ku-R0RGqk="
+          class="h-6 mr-3"
+          alt="Cookie Logo"
+        />
         <span class="self-center text-xl font-semibold whitespace-nowrap">Cookie's World</span>
       </a>
       <ul class="flex space-x-6">
@@ -19,7 +23,9 @@
     </div>
     <div class="flex items-center">
       <button class="p-2 border rounded relative" (click)="toogleSideMenu()">
-        <div class="absolute -top-2 -left-2 rounded h-5 w-5 bg-black text-white text-xs">{{cart.length}}</div>
+        <div class="absolute -top-2 -left-2 rounded h-5 w-5 bg-black text-white text-xs">
+          {{ cart.length }}
+        </div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -58,10 +64,26 @@
       </svg>
     </button>
   </div>
-  <div>
-    @for (products of cart; track $index) {
-      <p>{{ products.name }}</p>
-      <p>{{ products.price }}</p>
+  <div class="space-y-4 my-4">
+    @for (products of cart; track products.id) {
+      <div>
+        <a href="" class="flex items-center space-x-4 p-4 border-b">
+          <img
+            [src]="[products.imageUrl]"
+            alt="product image"
+            class="w-16 h-16 object-cover rounded"
+          />
+          <div>
+            <h5 class="font-bold">{{products.name}}</h5>
+            <h6 class="text-lg">${{products.price }}</h6>
+          </div>
+        </a>
+      </div>
     }
+    <a href="" class="flex items-center space-x-4 p-4 ">
+      <p> Total:</p>
+      <p> {{getTotalPrice() | currency}} </p>
+
+    </a>
   </div>
 </div>
