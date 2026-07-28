@@ -24,7 +24,7 @@
     <div class="flex items-center">
       <button class="p-2 border rounded relative" (click)="toogleSideMenu()">
         <div class="absolute -top-2 -left-2 rounded h-5 w-5 bg-black text-white text-xs">
-          {{ cart.length }}
+          {{ cart().length }}
         </div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +65,7 @@
     </button>
   </div>
   <div class="space-y-4 my-4">
-    @for (products of cart; track products.id) {
+    @for (products of cart(); track products.id) {
       <div>
         <a href="" class="flex items-center space-x-4 p-4 border-b">
           <img
