@@ -69,12 +69,12 @@
       <div>
         <a href="" class="flex items-center space-x-4 p-4 border-b">
           <img
-            [src]="[products.imageUrl]"
+            [src]="[products.images[0]]"
             alt="product image"
             class="w-16 h-16 object-cover rounded"
           />
           <div>
-            <h5 class="font-bold">{{products.name}}</h5>
+            <h5 class="font-bold">{{products.title}}</h5>
             <h6 class="text-lg">${{products.price }}</h6>
           </div>
         </a>
