@@ -9,7 +9,15 @@ export class TimeAgoPipe implements PipeTransform {
     const now = new Date().getTime();
     const time = new Date(Timevalue).getTime();
 
+    if(isNaN(time)){
+      return 'Invalid date';
+    }
+
     const diff = now - time;
+
+    if (diff < 0) {
+      return 'just now';
+    }
 
     const seconds = Math.floor(diff / 1000);
     const minutes = Math.floor(seconds / 60);
