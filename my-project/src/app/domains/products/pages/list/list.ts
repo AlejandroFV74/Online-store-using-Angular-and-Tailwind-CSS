@@ -8,7 +8,7 @@ import { Product as ProductService } from '../../../shared/services/product';
 
 @Component({
   selector: 'app-list',
-  imports: [CommonModule, ProductComponent, Header],
+  imports: [CommonModule, ProductComponent],
   templateUrl: './list.html',
   styleUrl: './list.css',
 })
