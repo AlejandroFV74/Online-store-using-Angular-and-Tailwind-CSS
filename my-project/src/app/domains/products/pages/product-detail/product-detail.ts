@@ -13,14 +13,22 @@ export class ProductDetail {
   @Input() id?: string;
   private productService = inject(ProductService);
   product = signal<Product | null>(null);
+  cover = signal('');
 
   ngOnInit() {
     if (this.id) {
       this.productService.getOne(this.id).subscribe({
         next: (product) => {
           this.product.set(product);
+          if(product.images.length > 0){
+            this.cover.set(product.images[0]);
+          }
         },
       });
     }
+  }
+
+  changeCover(image: string) {
+    this.cover.set(image);
   }
 }
