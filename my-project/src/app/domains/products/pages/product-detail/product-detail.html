@@ -15,6 +15,7 @@
           *ngFor="let images of product()?.images" 
           [src]=images
           (click)="changeCover(images)"
+          [class.border-red-500]="images === cover()"
         />
       </div>
     </div>
